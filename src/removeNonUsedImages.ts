@@ -15,7 +15,7 @@ const removeNonUsedImages = () => {
             inUseImagesUrl.push(imageUrl);
         }
 
-        const base64Regex = /\[(.*?)\]:\s*data:image\/png;base64,[a-zA-Z0-9+/=]+/g;
+        const base64Regex = /\[(.*?)\]:\s*data:image\/[a-zA-Z]+;base64,([a-zA-Z0-9+/=]+)/g;
 
         let newMarkdownContent = markdownContent.replace(base64Regex, (match, base64) => {
             if (inUseImagesUrl.includes(base64)) {
